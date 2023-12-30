@@ -9,9 +9,6 @@ from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from bs4 import BeautifulSoup
 import re
 from fastapi.middleware.cors import CORSMiddleware
-
-from collections import Counter
-from fastapi.responses import HTMLResponse
 from typing import Dict
 app = FastAPI()
 app.add_middleware(
@@ -21,7 +18,7 @@ app.add_middleware(
     allow_headers=["*"],  # You can specify specific headers if needed
     allow_credentials=True,  # Set this to True if your frontend sends credentials (cookies, HTTP Basic Auth, etc.)
 )
-
+# classifier = pipeline('sentiment-analysis', model='nlptown/bert-base-multilingual-uncased-sentiment')
 # stars_list=[]
 
 class SearchRequest(BaseModel):
@@ -36,7 +33,6 @@ class ScrapingResponse(BaseModel):
     details: list
     reviews: list
 
-    score:list
 class InputURL(BaseModel):
     url: str
 def scraping_reviews(url):
