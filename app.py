@@ -9,7 +9,7 @@ from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from bs4 import BeautifulSoup
 import re
 from fastapi.middleware.cors import CORSMiddleware
-import plotly.graph_objects as go
+
 from collections import Counter
 from fastapi.responses import HTMLResponse
 from typing import Dict
